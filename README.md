@@ -4,7 +4,7 @@ Repositorio de la Página Web de SCERIS
 
 ### Diagrama DB
 
-![Diagrama DB](./docs/DB%202.svg)
+![Diagrama DB](./docs/DB%20v2.svg)
 
 ### Reglas para el Git Flow
 
