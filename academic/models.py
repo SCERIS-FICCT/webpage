@@ -86,6 +86,7 @@ class MemberPosition(models.Model):
 class Member(models.Model):
     code = models.CharField(max_length=15)
     admission_date = models.DateField()
+    person = models.OneToOneField(Person, on_delete=models.CASCADE)
     admission_type = models.ForeignKey(AdmissionType, on_delete=models.CASCADE)
     member_type = models.ForeignKey(MemberType, on_delete=models.CASCADE)
     career = models.ForeignKey(Career, on_delete=models.CASCADE)
