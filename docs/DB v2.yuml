@@ -1,0 +1,40 @@
+// {type:class}
+// {direction:topDown}
+// {generate:true}
+
+[note: Diagrama V2!{bg:cornsilk}]
+
+// Models
+[EventType|name:char(50)]
+[Event|name:char(100);description:text;price:float;datetime:datetime;place:char(100);image:image]
+[DocumentType|name:char(50)]
+[Document|code:char(15);description:text;attachment:url;documentable:polymorphic]
+[User|username:char(128);password:char(128);email:email]
+[Person|first_name:char(100);last_name:char(100);birthday:date;address:text;blood_group:char(5);dni:char(12);picture:image]
+[Phone|number:char(10);description:text]
+[Project|date:date;name:char(150);description:text]
+[Career|name:char(50);code:char(10)]
+[AdmissionType|name:char(50);description:text]
+[MemberType|name:char(50);description:text]
+[MemberPosition|name:char(50);description:text]
+[Member|code:char(15);admission_date:date]
+[MemberPositionHistory|start_date:date;end_date:date]
+[ExtracurricularInformation|date:date;name:char(100);description:text]
+[Subject|name:char(50);code:char(15)]
+[AcademicHistory|semester:positive_small_int;year:positive_int]
+
+// Relationships
+[Event]0..*-1[EventType]
+[Document]0..*-1[DocumentType]
+[Person]1-1[User]
+[Person]1-1..*[Phone]
+[Member]1-1[Person]
+[Member]0..*-1[AdmissionType]
+[Member]0..*-1[MemberType]
+[Member]0..*-1[Career]
+[Member]1..*-0..*[Project]
+[Member]1-0..*[MemberPositionHistory]
+[MemberPosition]1-1..*[MemberPositionHistory]
+[Member]1-0..*[ExtracurricularInformation]
+[AcademicHistory]0..*-1..*[Subject]
+[Member]1-0..*[AcademicHistory]
