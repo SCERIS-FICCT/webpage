@@ -106,8 +106,9 @@ class MemberPositionHistory(models.Model):
 
 class ExtracurricularInformation(models.Model):
     date = models.DateField()
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     description = models.TextField()
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
 
 
 class Subject(models.Model):
@@ -119,3 +120,4 @@ class AcademicHistory(models.Model):
     semester = models.PositiveSmallIntegerField()
     year = models.PositiveIntegerField()
     subjects = models.ManyToManyField(Subject)
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
