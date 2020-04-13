@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login</title>
+  <title>Inicio de Sesión</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,17 +22,17 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/"><b>Admin</b>LTE</a>
+    <a href="/"><b>SCERIS</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Inicie Sesión</p>
 
       <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Username" name="username" autofocus="" autocapitalize="none" autocomplete="off" maxlength="150" required="" id="id_username">
+          <input type="text" class="form-control" placeholder="Nombre de Usuario" name="username" autofocus="" autocapitalize="none" autocomplete="off" maxlength="150" required="" id="id_username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="off" required="" id="id_password">
+          <input type="password" class="form-control" placeholder="Contraseña" name="password" autocomplete="off" required="" id="id_password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,21 +49,20 @@
         </div>
         
         {% if form.errors %}
-          <p class="login-box-msg text-danger">Your username and password didn't match. Please try again.</p>
+          <p class="login-box-msg text-danger">Tu nombre de usuario o contraseña son incorrectos. Por favor intente nuevamente.</p>
         {% endif %}
 
         {% if next %}
           {% if user.is_authenticated %}
-          <p class="login-box-msg text-primary">Your account doesn't have access to this page. To proceed,
-          please login with an account that has access.</p>
+          <p class="login-box-msg text-primary">Tu cuenta no tiene acceso a esta página. Para proceder, por favor ingrese con una cuenta que tenga acceso.</p>
           {% else %}
-          <p class="login-box-msg text-primary">Please login to see this page.</p>
+          <p class="login-box-msg text-primary">Por favor loguearse para ver la página.</p>
           {% endif %}
       {% endif %}
         
         <div class="row">
           <div class="col">
-            <input type="submit" class="btn btn-primary btn-block" value="Sign In" />
+            <input type="submit" class="btn btn-primary btn-block" value="Ingresar" />
             <input type="hidden" name="next" value="{{ next }}" />
           </div>
           <!-- /.col -->
@@ -73,7 +72,7 @@
 
       <br/>      
       <p class="mb-1 text-center">
-        <a href="{% url 'password_reset' %}">I forgot my password</a>
+        <a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
       </p>
 
     </div>
